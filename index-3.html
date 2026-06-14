@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zoë's Bakery – Handcrafted with Love, Johannesburg</title>
+  <meta name="description" content="Zoë's Bakery – handcrafted cakes, pastries and custom orders in Johannesburg. Order online or visit us today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blush:     #F2C4CE;
+      --blush-light: #FAF0F2;
+      --blush-mid: #E8A8B5;
+      --gold:      #C9A84C;
+      --gold-light: #F0DFA0;
+      --white:     #FFFCFD;
+      --charcoal:  #2C2320;
+      --warm-grey: #7A6E6B;
+      --divider:   #EDD5DA;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 5vw;
+      background: rgba(255,252,253,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 500 !important;
+    }
+
+    .nav-cta:hover { background: #b8923e; color: var(--white) !important; }
+
+    /* mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5vw 4vw 5vw 7vw;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--blush-mid);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--warm-grey);
+      max-width: 38ch;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: #3d3330; transform: translateY(-1px); }
+
+    .btn-outline {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--blush-mid);
+      padding-bottom: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      background: var(--blush-light);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Signature element: gold ribbon diagonal */
+    .hero-ribbon {
+      position: absolute;
+      bottom: 2.5rem;
+      left: -1rem;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      padding: 0.7rem 2.5rem 0.7rem 2rem;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+
+    /* ── ABOUT STRIP ── */
+    .about-strip {
+      background: var(--blush-light);
+      padding: 5rem 7vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 2px;
+      display: block;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+    }
+
+    .about-image-accent {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      width: 60%;
+      height: 60%;
+      border: 2px solid var(--gold-light);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--blush-mid);
+    }
+
+    .section-body {
+      color: var(--warm-grey);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .signature {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--gold);
+      margin-top: 1rem;
+    }
+
+    /* ── MENU / OFFERINGS ── */
+    .offerings {
+      padding: 6rem 7vw;
+      text-align: center;
+      background: radial-gradient(ellipse at center, #FDE8EE 0%, #FAF0F2 50%, var(--white) 100%);
+    }
+
+    .offerings-header {
+      max-width: 50ch;
+      margin: 0 auto 4rem;
+    }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .offering-card {
+      background: var(--blush-light);
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .offering-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.15);
+    }
+
+    .offering-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: var(--blush);
+    }
+
+    /* Placeholder coloured blocks when no image */
+    .offering-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .offering-body {
+      padding: 2.8rem 1.5rem 1.5rem;
+    }
+
+    .offering-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .offering-desc {
+      font-size: 0.9rem;
+      color: var(--warm-grey);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .offering-tag {
+      display: inline-block;
+      background: var(--gold-light);
+      color: var(--charcoal);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 2rem;
+    }
+
+    /* ── CUSTOM ORDERS ── */
+    .custom {
+      background: var(--charcoal);
+      color: var(--white);
+      padding: 6rem 7vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      align-items: center;
+    }
+
+    .custom .section-title { color: var(--white); }
+    .custom .section-title em { color: var(--gold-light); }
+    .custom .section-eyebrow { color: var(--gold); }
+
+    .custom-body {
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .custom-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .custom-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .custom-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-gold:hover { background: #b8923e; transform: translateY(-1px); }
+
+    .custom-image img {
+      width: 100%;
+      border-radius: 4px;
+      display: block;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .custom-image-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials {
+      padding: 6rem 7vw;
+      background: var(--blush-light);
+      text-align: center;
+    }
+
+    .testimonials-header {
+      max-width: 40ch;
+      margin: 0 auto 3.5rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 4px;
+      text-align: left;
+      border-top: 3px solid var(--gold);
+    }
+
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--charcoal);
+      margin-bottom: 1.2rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 6rem 7vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5vw;
+      align-items: start;
+    }
+
+    .contact-info { }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--blush-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-value {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+    }
+
+    .contact-form {
+      background: var(--blush-light);
+      padding: 2.5rem;
+      border-radius: 4px;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-grey);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      background: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--charcoal);
+      color: var(--white);
+      border: none;
+      padding: 1rem;
+      border-radius: 3rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-submit:hover { background: #3d3330; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 7vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo { display: flex; align-items: center; }
+
+    .footer-copy {
+      font-size: 0.82rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── SECTION DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 7vw;
+      margin: 0;
+    }
+
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    .divider-motif {
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    /* ── MEET THE BAKER ── */
+    .team {
+      padding: 6rem 7vw;
+      background: var(--white);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .team-card {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 900px;
+      background: var(--blush-light);
+      border-radius: 6px;
+      overflow: hidden;
+      padding: 3rem;
+    }
+
+    .team-img-wrap {
+      position: relative;
+    }
+
+    .team-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 4px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .team-img-border {
+      position: absolute;
+      inset: -0.6rem;
+      border: 2px solid var(--gold);
+      border-radius: 6px;
+      z-index: 0;
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-role {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .team-bio {
+      color: var(--warm-grey);
+      font-size: 0.97rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .team-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .team-tag {
+      background: var(--white);
+      border: 1px solid var(--divider);
+      color: var(--charcoal);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 2rem;
+    }
+
+    /* ── PRICE LIST ── */
+    .pricelist {
+      padding: 6rem 7vw;
+      background: var(--blush-light);
+    }
+
+    .pricelist-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .price-category {
+      background: var(--white);
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(44,35,32,0.06);
+    }
+
+    .price-cat-header {
+      background: var(--charcoal);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .price-cat-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .price-items {
+      padding: 0.5rem 0;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--divider);
+      gap: 1rem;
+    }
+
+    .price-row:last-child { border-bottom: none; }
+
+    .price-name {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 0.15rem;
+    }
+
+    .price-desc {
+      font-size: 0.78rem;
+      color: var(--warm-grey);
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .price-amount.free {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #2e7d32;
+    }
+
+    @media (max-width: 900px) {
+      .price-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── FLAVOUR GUIDE ── */
+    .flavours {
+      padding: 6rem 7vw;
+      background: var(--white);
+    }
+    .flavours-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .flavour-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .flavour-card {
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--divider);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .flavour-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.15);
+    }
+    .flavour-swatch {
+      height: 80px;
+      width: 100%;
+    }
+    .flavour-body {
+      padding: 1rem;
+      background: var(--white);
+    }
+    .flavour-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .flavour-desc {
+      font-size: 0.78rem;
+      color: var(--warm-grey);
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    .flavour-badge {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2rem;
+    }
+    .flavour-badge.classic {
+      background: var(--blush-light);
+      color: var(--blush-mid);
+      border: 1px solid var(--blush);
+    }
+    .flavour-badge.premium {
+      background: #FBF3DC;
+      color: #8B6914;
+      border: 1px solid var(--gold-light);
+    }
+
+    /* ── GALLERY ── */
+    .gallery {
+      padding: 6rem 7vw;
+      background: var(--blush-light);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0.8rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      min-height: 220px;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.04); }
+    .gallery-item--tall {
+      grid-row: span 2;
+    }
+    .gallery-item--wide {
+      grid-column: span 2;
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(44,35,32,0.6) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    /* ── SHORT NOTICE ── */
+    .shortnotice {
+      background: var(--charcoal);
+      padding: 6rem 7vw;
+      text-align: center;
+    }
+    .shortnotice-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .shortnotice-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .shortnotice-items {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .shortnotice-item {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 1.5rem 1rem;
+    }
+    .shortnotice-icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+    .shortnotice-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .shortnotice-avail {
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      padding: 6rem 7vw;
+      background: var(--white);
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--divider);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.3rem 0;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-chevron {
+      color: var(--gold);
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-q.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding-bottom: 1.3rem;
+    }
+    .faq-a p {
+      color: var(--warm-grey);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .faq-a.open { display: block; }
+
+    /* ── NEW FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 0;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding: 4rem 7vw;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 7vw;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-col-title {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-nav a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .social-links {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+    .social-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .social-btn:hover { background: var(--gold); color: var(--white); }
+
+    /* ── SPLASH SCREEN ── */
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: splashFade 2.8s ease forwards;
+      pointer-events: none;
+    }
+    .splash-logo {
+      width: 260px;
+      max-width: 70vw;
+      animation: splashLogo 2.8s ease forwards;
+    }
+    @keyframes splashFade {
+      0%   { opacity: 1; }
+      70%  { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+    @keyframes splashLogo {
+      0%   { opacity: 0; transform: scale(0.8); }
+      20%  { opacity: 1; transform: scale(1); }
+      75%  { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.05); }
+    }
+    @keyframes splashSlogan {
+      0%   { opacity: 0; transform: translateY(12px); }
+      35%  { opacity: 1; transform: translateY(0); }
+      75%  { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-8px); }
+    }
+
+    /* ── HERO LOGO OVERLAP ── */
+    /* Desktop logo */
+    .desktop-logo {
+      width: 260px;
+      max-width: 80%;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    /* Mobile overlap logo - hidden on desktop, shown on mobile via media query */
+    .hero-logo-overlap {
+      display: none;
+    }
+
+    /* ── RESPONSIVE ADDITIONS ── */
+    @media (max-width: 900px) {
+      .flavour-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item--tall { grid-row: span 1; }
+      .gallery-item--wide { grid-column: span 2; }
+      .shortnotice-items { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .flavour-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-item--wide { grid-column: span 1; }
+      .shortnotice-items { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+    }
+
+    /* ── ICON SPRITE ── */
+    /* Sheet is 3 cols x 2 rows. Each cell ≈ 33.33% x 50% */
+    .icon {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      background-image: url('icons.png');
+      background-size: 300% 200%;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+    }
+    /* Row 1 */
+    .icon-cake       { background-position: 0% 0%; }
+    .icon-cupcake    { background-position: 50% 0%; }
+    .icon-eclair     { background-position: 100% 0%; }
+    /* Row 2 */
+    .icon-bread      { background-position: 0% 100%; }
+    .icon-whisk      { background-position: 50% 100%; }
+    .icon-pipingbag  { background-position: 100% 100%; }
+
+    .icon-lg {
+      width: 110px;
+      height: 110px;
+    }
+
+    .icon-sm {
+      width: 52px;
+      height: 52px;
+    }
+
+
+    @media (max-width: 900px) {
+      .hero-wrapper { display: flex; flex-direction: column; }
+      .hero { display: flex; flex-direction: column; min-height: auto; overflow: visible; order: 1; }
+      .hero-title { font-size: 2.4rem; }
+      .hero-sub { font-size: 0.95rem; max-width: 100%; }
+      .hero-text { padding: 4rem 6vw 2rem; order: 2; width: 100%; text-align: center; }
+      .hero-text .desktop-logo { display: none; }
+      .hero-text .hero-eyebrow { display: none; }
+      .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
+      .hero-image { min-height: 260px; max-height: 320px; order: 1; width: 100%; overflow: visible; position: relative; }
+      .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; max-height: 320px; display: block; }
+      .hero-ribbon { top: 0.5rem; bottom: auto; }
+      .hero-logo-overlap {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: -70px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        pointer-events: none;
+      }
+      .hero-logo-overlap img {
+        width: 75vw;
+        max-width: 320px;
+        filter: drop-shadow(0 4px 20px rgba(44,35,32,0.15));
+      }
+      .about-strip { grid-template-columns: 1fr; }
+      .team-card { grid-template-columns: 1fr; padding: 2rem; gap: 2rem; }
+      .team-img { aspect-ratio: 4/3; object-position: center top; }
+
+      .offerings-grid { grid-template-columns: 1fr 1fr; }
+      .custom { grid-template-columns: 1fr; }
+      .custom-image { display: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); padding: 1rem 5vw 2rem; border-bottom: 1px solid var(--divider); gap: 1rem; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .offerings-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <span style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--charcoal);">Zoë's <span style="color:var(--gold);">Bakery</span></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Cupcakes</a></li>
+      <li><a href="#flavours">Flavours</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#custom">Custom Orders</a></li>
+      <li><a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8E%82" target="_blank" class="nav-cta">Order on WhatsApp</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrapper">
+    <section class="hero">
+      <div class="hero-text">
+        <img src="logo.png" alt="Zoë's Bakery" class="desktop-logo" />
+        <p class="hero-eyebrow">Handcrafted in Johannesburg</p>
+        <h1 class="hero-title">Baked with<br><em style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:1.2em;color:var(--blush-mid);">love,</em><br>every time.</h1>
+        <p class="hero-sub">Fresh pastries, celebration cakes and custom orders — made from scratch, delivered to your door across Joburg.</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%27d%20like%20to%20place%20a%20custom%20order%20%F0%9F%8E%82" target="_blank" class="btn-primary">Place a Custom Order</a>
+          <a href="#menu" class="btn-outline">See what we bake →</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="hero-cupcakes.jpg" alt="Beautiful floral cupcakes" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        <div class="hero-ribbon">Est. 2018 · Johannesburg</div>
+        <!-- Logo overlapping bottom of image - mobile only -->
+        <div class="hero-logo-overlap">
+          <img src="logo.png" alt="Zoë's Bakery" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- ABOUT -->
+  <section class="about-strip" id="about">
+    <div class="about-image">
+      <img src="cupcakes.jpg" alt="Freshly baked strawberry cupcakes" style="width:100%;aspect-ratio:4/5;border-radius:2px;display:block;object-fit:cover;" />
+      <div class="about-image-accent"></div>
+    </div>
+    <div class="about-text">
+      <p class="section-eyebrow">Our Story</p>
+      <h2 class="section-title">A kitchen full of<br><em>good things.</em></h2>
+      <p class="section-body">Zoë started baking from her mother's kitchen in Soweto at the age of twelve. What began as weekend treats for the family became a full bakery in 2018 — and we haven't stopped since.</p>
+      <p class="section-body">Every loaf, tart and celebration cake is made by hand using locally sourced ingredients. No shortcuts. No preservatives. Just real baking, done with care.</p>
+      <div class="signature">— Zoë Mokoena</div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- MEET THE BAKER -->
+  <section class="team" id="team">
+    <div class="team-header">
+      <p class="section-eyebrow">The Person Behind the Oven</p>
+      <h2 class="section-title">Meet <em>Zoë</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img src="baker.jpg" alt="Zoë Mokoena, head baker at Zoë's Bakery" class="team-img" />
+          <div class="team-img-border"></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Zoë Mokoena</h3>
+          <p class="team-role">Head Baker & Founder</p>
+          <p class="team-bio">Zoë has been baking professionally for over 12 years. Trained in classic French pastry technique but raised on her gogo's koeksisters and milk tart, her bakes blend the best of both worlds. Every cake that leaves this kitchen has been tasted, adjusted, and tasted again — nothing goes out unless it's perfect.</p>
+          <div class="team-tags">
+            <span class="team-tag">Celebration Cakes</span>
+            <span class="team-tag">Pastry</span>
+            <span class="team-tag">Custom Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- OFFERINGS -->
+  <section class="offerings" id="menu">
+    <div class="offerings-header">
+      <p class="section-eyebrow">Baked Fresh Daily</p>
+      <h2 class="section-title">Our <em>Cupcakes</em></h2>
+      <p style="color:var(--warm-grey);font-size:0.95rem;">Available for collection or delivery across Joburg. WhatsApp us for same-day availability.</p>
+    </div>
+    <div class="offerings-grid">
+      <div class="offering-card">
+        <div style="position:relative;">
+          <img src="cupcakes.jpg" alt="Strawberry cupcakes" class="offering-img" />
+          <span class="icon icon-cupcake" style="position:absolute;bottom:-28px;right:16px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10));"></span>
+        </div>
+        <div class="offering-body">
+          <h3 class="offering-title">Classic Cupcakes</h3>
+          <p class="offering-desc">Vanilla, red velvet, lemon, and chocolate. Topped with our signature buttercream swirl.</p>
+          <span class="offering-tag">Walk-in Daily</span>
+        </div>
+      </div>
+      <div class="offering-card">
+        <div style="position:relative;">
+          <img src="cake-funfetti.jpg" alt="Funfetti celebration cupcakes" class="offering-img" />
+          <span class="icon icon-cake" style="position:absolute;bottom:-28px;right:16px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10));"></span>
+        </div>
+        <div class="offering-body">
+          <h3 class="offering-title">Custom Cakes</h3>
+          <p class="offering-desc">Funfetti, drip cakes and themed designs. Perfect for birthdays and celebrations.</p>
+          <span class="offering-tag">Pre-order</span>
+        </div>
+      </div>
+      <div class="offering-card">
+        <div style="position:relative;">
+          <img src="cake-birthday.jpg" alt="Premium custom cupcakes" class="offering-img" />
+          <span class="icon icon-pipingbag" style="position:absolute;bottom:-28px;right:16px;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.10));"></span>
+        </div>
+        <div class="offering-body">
+          <h3 class="offering-title">Occasion Cakes</h3>
+          <p class="offering-desc">Fully personalised cakes for weddings, corporate events and special occasions. Every detail crafted to order.</p>
+          <span class="offering-tag">Custom Order</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- PRICE LIST -->
+  <section class="pricelist" id="pricing">
+    <div class="pricelist-header">
+      <p class="section-eyebrow">Simple & Transparent</p>
+      <h2 class="section-title">Our <em>Prices</em></h2>
+      <p style="color:var(--warm-grey);font-size:0.95rem;max-width:45ch;margin:0 auto;">All orders include free presentation packaging. Delivery available across Joburg — ask us for a quote.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <!-- Box deals -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <span class="icon icon-sm icon-cupcake" style="margin-right:0.5rem;"></span>
+          <h3 class="price-cat-title">Cupcake Boxes</h3>
+        </div>
+        <div class="price-items">
+          <div class="price-row">
+            <div>
+              <p class="price-name">Box of 6</p>
+              <p class="price-desc">Your choice of flavours</p>
+            </div>
+            <p class="price-amount">R120</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Box of 12</p>
+              <p class="price-desc">Mixed or single flavour</p>
+            </div>
+            <p class="price-amount">R220</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Box of 24</p>
+              <p class="price-desc">Great for events & offices</p>
+            </div>
+            <p class="price-amount">R400</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Box of 48</p>
+              <p class="price-desc">Bulk order — 48hrs notice</p>
+            </div>
+            <p class="price-amount">R750</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Premium / Custom -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <span class="icon icon-sm icon-pipingbag" style="margin-right:0.5rem;"></span>
+          <h3 class="price-cat-title">Cupcakes</h3>
+        </div>
+        <div class="price-items">
+          <div class="price-row">
+            <div>
+              <p class="price-name">Custom Themed Box of 6</p>
+              <p class="price-desc">With fondant toppers & colours</p>
+            </div>
+            <p class="price-amount">R200</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Custom Themed Box of 12</p>
+              <p class="price-desc">With fondant toppers & colours</p>
+            </div>
+            <p class="price-amount">R380</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Wedding / Event (per cupcake)</p>
+              <p class="price-desc">Minimum order 50 cupcakes</p>
+            </div>
+            <p class="price-amount">R35 ea</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Corporate Branded Box</p>
+              <p class="price-desc">Logo toppers, branded packaging</p>
+            </div>
+            <p class="price-amount">POA</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Single cupcakes -->
+      <div class="price-category">
+        <div class="price-cat-header">
+          <span class="icon icon-sm icon-cake" style="margin-right:0.5rem;"></span>
+          <h3 class="price-cat-title">Cakes — Occasion, Custom & Wedding</h3>
+        </div>
+        <div class="price-items">
+          <div class="price-row">
+            <div>
+              <p class="price-name">Classic Single</p>
+              <p class="price-desc">Vanilla, choc, lemon, red velvet</p>
+            </div>
+            <p class="price-amount">R22</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Premium Single</p>
+              <p class="price-desc">Salted caramel, Oreo, Ferrero</p>
+            </div>
+            <p class="price-amount">R28</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Gluten-Free Single</p>
+              <p class="price-desc">Available daily — limited qty</p>
+            </div>
+            <p class="price-amount">R32</p>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-name">Halaal Certified</p>
+              <p class="price-desc">All products halaal certified</p>
+            </div>
+            <p class="price-amount free">✓ Always</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%27d%20like%20to%20place%20a%20cupcake%20order%20%F0%9F%A7%81" target="_blank" class="btn-primary">Order Now on WhatsApp</a>
+      <p style="color:var(--warm-grey);font-size:0.82rem;margin-top:1rem;">Prices include VAT · Custom orders require 48hrs notice · Delivery quoted separately</p>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- CUSTOM ORDERS -->
+  <section class="custom" id="custom">
+    <div class="custom-text">
+      <p class="section-eyebrow">Make It Yours</p>
+      <h2 class="section-title">Custom <em>orders</em><br>done right.</h2>
+      <p class="custom-body">Whether it's a wedding cake for 200 guests or a dozen cupcakes for a birthday party, we'll make exactly what you're imagining.</p>
+      <ul class="custom-list">
+        <li>Wedding & engagement cakes</li>
+        <li>Corporate gifting & hampers</li>
+        <li>Baby showers & gender reveals</li>
+        <li>Graduation & matric farewell cakes</li>
+        <li>Gluten-free & halaal options available</li>
+      </ul>
+      <a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20a%20custom%20order%20%F0%9F%8E%82" target="_blank" class="btn-gold">Request a Quote on WhatsApp</a>
+    </div>
+      <div class="custom-image">
+        <img src="cake-cherry.jpg" alt="Custom celebration cake" style="width:100%;border-radius:4px;display:block;aspect-ratio:1;object-fit:cover;" />
+      </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- FLAVOUR GUIDE -->
+  <section class="flavours" id="flavours">
+    <div class="flavours-header">
+      <p class="section-eyebrow">Pick Your Favourite</p>
+      <h2 class="section-title">Our <em>Flavours</em></h2>
+      <p style="color:var(--warm-grey);font-size:0.95rem;max-width:45ch;margin:0 auto;">All flavours available in classic or premium finish. Mix and match in any box.</p>
+    </div>
+    <div class="flavour-grid">
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#FFF5F7,#F2C4CE);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Strawberry Dream</h4>
+          <p class="flavour-desc">Vanilla sponge, strawberry buttercream, fresh strawberry topper</p>
+          <span class="flavour-badge classic">Classic</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#3d1c02,#7b3f1e);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Dark Chocolate</h4>
+          <p class="flavour-desc">Rich chocolate sponge, chocolate ganache, cocoa dusting</p>
+          <span class="flavour-badge classic">Classic</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#8B0000,#C0392B);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Red Velvet</h4>
+          <p class="flavour-desc">Signature red velvet, cream cheese frosting, gold sprinkles</p>
+          <span class="flavour-badge classic">Classic</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#FFF9C4,#F9E04B);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Lemon Zest</h4>
+          <p class="flavour-desc">Light lemon sponge, lemon curd filling, zesty buttercream</p>
+          <span class="flavour-badge classic">Classic</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#D4A017,#C9A84C);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Salted Caramel</h4>
+          <p class="flavour-desc">Caramel sponge, salted caramel drizzle, toffee crunch topper</p>
+          <span class="flavour-badge premium">Premium</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#1a1a1a,#3d3d3d);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Oreo Overload</h4>
+          <p class="flavour-desc">Cookies & cream sponge, Oreo buttercream, crushed Oreo topper</p>
+          <span class="flavour-badge premium">Premium</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#E8D5F5,#C39BD3);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Blueberry Bliss</h4>
+          <p class="flavour-desc">Vanilla sponge, blueberry compote filling, lavender buttercream</p>
+          <span class="flavour-badge premium">Premium</span>
+        </div>
+      </div>
+      <div class="flavour-card">
+        <div class="flavour-swatch" style="background:linear-gradient(135deg,#FDE8D0,#E59866);"></div>
+        <div class="flavour-body">
+          <h4 class="flavour-name">Ferrero Rocher</h4>
+          <p class="flavour-desc">Hazelnut sponge, Nutella core, chocolate hazelnut buttercream</p>
+          <span class="flavour-badge premium">Premium</span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--warm-grey);font-size:0.82rem;margin-top:2rem;">Gluten-free sponge available for any flavour · Halaal certified · Seasonal specials added monthly</p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-eyebrow">Our Work</p>
+      <h2 class="section-title">Fresh from <em>the oven</em></h2>
+      <p style="color:var(--warm-grey);font-size:0.95rem;">Every cupcake is made by hand. Here's a taste of what we do.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-item--tall">
+        <img src="cake-cherry.jpg" alt="Cherry drip cake" />
+        <div class="gallery-overlay"><span>Cherry Drip Cake</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="cupcakes.jpg" alt="Strawberry cupcakes" />
+        <div class="gallery-overlay"><span>Strawberry Cupcakes</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="cake-birthday.jpg" alt="Birthday cake" />
+        <div class="gallery-overlay"><span>Birthday Cake</span></div>
+      </div>
+      <div class="gallery-item gallery-item--wide">
+        <img src="cake-funfetti.jpg" alt="Funfetti cake" />
+        <div class="gallery-overlay"><span>Funfetti Party Cake</span></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="https://www.instagram.com/" target="_blank" class="btn-outline" style="font-size:0.95rem;">
+        See more on Instagram →
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- SHORT NOTICE -->
+  <section class="shortnotice" id="thisweek">
+    <div class="shortnotice-inner">
+      <div class="shortnotice-badge">🕐 This Week</div>
+      <h2 class="section-title" style="color:var(--white);">Need something <em style="color:var(--gold-light);">soon?</em></h2>
+      <p style="color:rgba(255,255,255,0.7);max-width:48ch;margin:0 auto 2rem;line-height:1.8;">We keep a limited stock available for short-notice orders. WhatsApp us today to check availability — we'll tell you what's ready to go.</p>
+      <div class="shortnotice-items">
+        <div class="shortnotice-item">
+          <span class="shortnotice-icon">🧁</span>
+          <p class="shortnotice-name">Classic Boxes</p>
+          <p class="shortnotice-avail">Box of 6 or 12 · Same day</p>
+        </div>
+        <div class="shortnotice-item">
+          <span class="shortnotice-icon">🎂</span>
+          <p class="shortnotice-name">Party Cupcakes</p>
+          <p class="shortnotice-avail">Box of 24 · 24hrs notice</p>
+        </div>
+        <div class="shortnotice-item">
+          <span class="shortnotice-icon">💝</span>
+          <p class="shortnotice-name">Gift Boxes</p>
+          <p class="shortnotice-avail">Mixed flavour · Same day</p>
+        </div>
+        <div class="shortnotice-item">
+          <span class="shortnotice-icon">✨</span>
+          <p class="shortnotice-name">Custom Orders</p>
+          <p class="shortnotice-avail">Minimum 48hrs notice</p>
+        </div>
+      </div>
+      <a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%20need%20something%20urgently%20%F0%9F%A7%81%20what%20do%20you%20have%20available%3F" target="_blank" class="btn-gold" style="margin-top:2.5rem;display:inline-block;">Check What's Available Now</a>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="faq-header">
+      <p class="section-eyebrow">Good to Know</p>
+      <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How far in advance do I need to order? <span class="faq-chevron">﹀</span>
+        </button>
+        <div class="faq-a">
+          <p>For standard boxes of 6 or 12, we often have same-day availability — just WhatsApp us to check. Custom and themed orders need a minimum of 48 hours notice. Wedding and large event orders (50+ cupcakes) need at least 2 weeks notice.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you deliver? <span class="faq-chevron">﹀</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes! We deliver across Johannesburg and surrounding areas. Delivery is quoted separately based on your location. Collection from our Roodepoort kitchen is always free. WhatsApp us your area for a delivery quote.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Are your products halaal? <span class="faq-chevron">﹀</span>
+        </button>
+        <div class="faq-a">
+          <p>Yes — all our products are halaal certified. We use only halaal-certified ingredients and maintain a halaal kitchen. A certificate is available on request.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do you cater for gluten-free or other dietary needs? <span class="faq-chevron">﹀</span>
+        </button>
+        <div class="faq-a">
+          <p>We offer gluten-free sponge as an option for any flavour at R32 per cupcake. Please mention your dietary requirements when ordering. We do not currently offer vegan options but are working on it!</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I place an order? <span class="faq-chevron">﹀</span>
+        </button>
+        <div class="faq-a">
+          <p>The easiest way is to WhatsApp us on <a href="https://wa.me/27762061716" target="_blank" style="color:var(--gold);">+27 76 206 1716</a>. Tell us what you need, your date, and we'll confirm availability and take a 50% deposit to secure your order. Balance is due on collection or delivery.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What payment methods do you accept? <span class="faq-chevron">﹀</span>
+        </button>
+        <div class="faq-a">
+          <p>We accept EFT (bank transfer) and cash. We do not currently accept card payments in person. A 50% deposit is required to confirm all orders, with the balance due before collection or delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+
+  <section class="testimonials" id="reviews">
+    <div class="testimonials-header">
+      <p class="section-eyebrow">Happy Customers</p>
+      <h2 class="section-title">What people are <em>saying</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Zoë made our wedding cake and it was absolutely stunning. Everyone kept asking who made it. Will never go anywhere else."</p>
+        <p class="testimonial-author">Thandi M. · Sandton</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The sourdough is the best I've had in Joburg, no competition. I pre-order every Thursday without fail."</p>
+        <p class="testimonial-author">Ruan V. · Fourways</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Ordered cupcakes for my daughter's party — they were beautiful and tasted even better than they looked. Thank you Zoë!"</p>
+        <p class="testimonial-author">Priya K. · Midrand</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div><div class="divider-motif">✦</div><div class="divider-line"></div></div>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-info">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="section-title">Let's bake<br>something <em>special.</em></h2>
+      <p style="color:var(--warm-grey);margin-bottom:2rem;line-height:1.8;">WhatsApp is the fastest way to reach us. We typically respond within 2 hours during business hours.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Find Us</div>
+          <div class="contact-value">12 Blossom Street, Roodepoort<br>Johannesburg, 1724</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">WhatsApp / Call</div>
+          <div class="contact-value">
+            <a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8E%82" target="_blank" style="color:var(--gold);font-weight:500;text-decoration:none;">
+              💬 Chat on WhatsApp
+            </a><br>
+            <a href="tel:+27762061716" style="color:inherit;text-decoration:none;">+27 76 206 1716</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:hello@zoesbakery.co.za" style="color:inherit;text-decoration:none;">hello@zoesbakery.co.za</a></div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-label">Hours</div>
+          <div class="contact-value">Mon–Fri: 6am – 5pm<br>Sat: 6am – 2pm · Sun: Closed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <p class="form-title">Send us a message</p>
+      <!-- ACTION: Replace with your Formspree endpoint e.g. https://formspree.io/f/YOUR_ID -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Thandi Mokoena" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">WhatsApp Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="082 000 0000" required />
+        </div>
+        <div class="form-group">
+          <label for="order">What can we bake for you?</label>
+          <select id="order" name="order">
+            <option value="">Select an option</option>
+            <option>Celebration Cake</option>
+            <option>Wedding Cake</option>
+            <option>Cupcakes</option>
+            <option>Pastries / Bread</option>
+            <option>Corporate Order</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell us more</label>
+          <textarea id="message" name="message" placeholder="Date needed, number of guests, any special requirements..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.8rem;font-weight:600;color:var(--white);margin-bottom:0.5rem;">Zoë's <span style="color:var(--gold);">Bakery</span></div>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;max-width:22ch;line-height:1.7;">Handcrafted cupcakes & custom cakes. Johannesburg.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/" target="_blank" class="social-btn" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" class="social-btn" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/27762061716" target="_blank" class="social-btn" aria-label="WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.547a.75.75 0 0 0 .952.93l5.886-1.938A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 0 1-5.003-1.383l-.36-.214-3.733 1.228 1.178-3.638-.235-.374A9.715 9.715 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Explore</p>
+        <ul class="footer-nav">
+          <li><a href="#about">About</a></li>
+          <li><a href="#team">Meet Zoë</a></li>
+          <li><a href="#menu">Our Bakes</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#flavours">Flavours</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Order</p>
+        <ul class="footer-nav">
+          <li><a href="#thisweek">Available This Week</a></li>
+          <li><a href="#custom">Custom Orders</a></li>
+          <li><a href="#faq">FAQs</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-nav">
+          <li><a href="https://wa.me/27762061716" target="_blank">+27 76 206 1716</a></li>
+          <li><a href="mailto:hello@zoesbakery.co.za">hello@zoesbakery.co.za</a></li>
+          <li style="color:rgba(255,255,255,0.4);font-size:0.82rem;margin-top:0.5rem;">12 Blossom St, Roodepoort<br>Johannesburg</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Zoë's Bakery · Johannesburg · All rights reserved</p>
+      <div style="display:flex;gap:0.25rem;align-items:center;">
+        <span class="icon icon-sm icon-cake"></span>
+        <span class="icon icon-sm icon-cupcake"></span>
+        <span class="icon icon-sm icon-whisk"></span>
+      </div>
+      <p style="font-size:0.75rem;color:rgba(255,255,255,0.3);">Built by <a href="#" style="color:var(--gold);text-decoration:none;">Busy Bs Webs</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('open');
+      }
+    }
+
+    // Close nav on link click (mobile)
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('open'));
+    });
+  </script>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/27762061716?text=Hi%20Zo%C3%AB%2C%20I%27d%20like%20to%20place%20an%20order%20%F0%9F%8E%82"
+     target="_blank"
+     class="wa-float"
+     aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="30" height="30">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.117 1.528 5.845L.057 23.547a.75.75 0 0 0 .952.93l5.886-1.938A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.726 9.726 0 0 1-5.003-1.383l-.36-.214-3.733 1.228 1.178-3.638-.235-.374A9.715 9.715 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+    </svg>
+  </a>
+
+  <style>
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+    .wa-float:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.55);
+    }
+    /* Pulse ring */
+    .wa-float::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 3px solid rgba(37,211,102,0.4);
+      animation: waPulse 2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wa-float::before { animation: none; }
+    }
+  </style>
+
+  <!-- SPLASH SCREEN -->
+  <div id="splash" style="position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;pointer-events:none;animation:splashFade 3.5s ease forwards;background:radial-gradient(ellipse at center, #FFFCFD 0%, #F9E4EA 40%, #F2C4CE 100%);">
+    <img src="logo.png" alt="Zoë's Bakery" style="width:280px;max-width:72vw;animation:splashLogo 3.5s ease forwards;" />
+    <p style="font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:clamp(1.1rem,4vw,1.5rem);color:#C9A84C;letter-spacing:0.08em;text-align:center;padding:0 2rem;animation:splashSlogan 3.5s ease forwards;">Where every bite tells a story.</p>
+  </div>
+
+</body>
+</html>
