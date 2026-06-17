@@ -1296,9 +1296,15 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; animation: none !important; }
     }
+
+    /* ── CUSTOM CURSOR (desktop only) ── */
+    @media (pointer: fine) {
+      body, * { cursor: url('cursor-pipingbag.png') 4 4, auto !important; }
+      a, button, [onclick], .faq-q, .nav-cta, .btn-primary, .btn-outline, .btn-gold, .wa-float {
+        cursor: url('cursor-pipingbag.png') 4 4, pointer !important;
+      }
+    }
   </style>
-</head>
-<body>
 
   <!-- NAV -->
   <nav>
